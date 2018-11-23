@@ -23,6 +23,7 @@ func main() {
 		logger.Error(fmt.Sprintf("Can`t get source response, error: %s", err.Error()))
 	}
 	fmt.Println(string(body))
+
 }
 
 // Die kills the program.
