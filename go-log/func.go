@@ -83,31 +83,6 @@ func NewServiceLogger(fields Fields, minimumLevel Level) (Logger, error) {
 	return newLogrusLogger(GetOutput(), fields, minimumLevel)
 }
 
-// SetLevel sets the logging severity level on the registered logger.
-// Both the default and current logger are reconfigured to use the same
-// level.
-func SetLevel(level Level) {
-	if level != LevelInvalid {
-		currentLogger.SetLevel(level)
-		defaultLogger.SetLevel(level)
-	}
-}
-
-// GetLevel returns the minimum severity level to send to an output
-// destination.
-func GetLevel() Level {
-	return currentLogger.GetLevel()
-}
-
-// SetOutput sets the output destination for the registered logger.
-// Both the default and current logger are reconfigured to use the same
-// output destination.
-func SetOutput(w io.Writer) {
-	output = w
-	currentLogger.SetOutput(output)
-	defaultLogger.SetOutput(output)
-}
-
 // GetOutput gets the output destination of the registered logger.
 // Defaults to os.Stderr.
 func GetOutput() io.Writer {
